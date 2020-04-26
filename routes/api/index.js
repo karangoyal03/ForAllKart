@@ -1,20 +1,13 @@
 const route =require('express').Router()
 
-const userroute=require('./users')
+route.use("/users", require("./users"));
 
-const productroute=require('./products')
+route.use("/products", require("./products"));
 
-const queryroute=require('./queries')
+route.use('/queries',require('./queries'))
 
-const cartroute=require('./cart')
+route.use("/cart", require("./cart"));
 
-
-route.use('/users',userroute)
-
-route.use('/products',productroute)
-
-route.use('/queries',queryroute)
-
-route.use('/cart',cartroute)
-
-exports =module.exports=route
+exports =module.exports={
+    route
+}

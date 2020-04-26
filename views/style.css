@@ -1,7 +1,6 @@
 .navigation{
     font-size: 1.5rem;
 }  
-/* #loginBtn{
-margin-left: 70px;
-} */
-
+body{
+    background-color: rgb(235, 235, 235);
+}

@@ -15,11 +15,6 @@ route.get('/',(req,res)=>{
 })
 
 route.post('/',(req,res)=>{
-    if(req.body.phonenunber.length>10){
-        return res.status(403).send({
-          error: "Please enter valid phonenumber of length 10",
-        });
-    }
     Query.create({
         name:req.body.name,
         productname:req.body.productname,

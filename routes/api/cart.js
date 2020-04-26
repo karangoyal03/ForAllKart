@@ -5,15 +5,15 @@ route.get("/delete", (req, res) => {
   Cart.destroy({
     where: {
       id: req.query.id,
-    }
-  }).then(()=>{
-      res.send('item successfully removed from cart')
-
+    },
   })
-  .catch((err)=>{
-      console.log(err)
-      res.send('error in deleting item from cart')
-  })
+    .then(() => {
+      res.send("item successfully removed from cart");
+    })
+    .catch((err) => {
+      console.log(err);
+      res.send("error in deleting item from cart");
+    });
 });
 
 route.get("/", (req, res) => {
@@ -30,15 +30,9 @@ route.get("/", (req, res) => {
 });
 
 route.post("/", (req, res) => {
-  if (isNaN(req.body.price)) {
-    return res.status(403).send({
-      error: "Price is not valid number",
-    });
-  }
-
   Cart.create({
     productname: req.body.productname,
-    manufacturer:req.body.manufacturer,
+    manufacturer: req.body.manufacturer,
     price: parseFloat(req.body.price),
     imageurl: req.body.imageurl,
   })

@@ -14,30 +14,18 @@ const User = db.define("users", {
     type: Sequelize.INTEGER,
     autoIncrement: true,
     primaryKey: true,
-    allowNull: false,
+    allowNull:false
   },
   name: {
     type: Sequelize.STRING,
-    allowNull: false,
+    allowNull:false
   },
-  gender: {
-    type: Sequelize.STRING,
-    allowNull: false,
-  },
-  address: {
-    type: Sequelize.STRING,
-    allowNull: false,
-  },
-  email: {
-    type: Sequelize.STRING,
-    allowNull: false,
-    unique: true
-  },
+  gender: Sequelize.STRING,
 
-  phonenumber: {
-    type: Sequelize.NUMBER,
-    allowNull: null,
-  },
+  address: Sequelize.STRING,
+
+  email: Sequelize.STRING,
+ phonenumber: Sequelize.STRING,
   createdAt: Sequelize.DATE,
   updatedAt: Sequelize.DATE,
 });
@@ -80,7 +68,7 @@ const Cart = db.define("carts", {
   },
   productname: {
     type: Sequelize.STRING,
-    allowNull: false,
+    allowNull:false
   },
   manufacturer: {
     type: Sequelize.STRING,
@@ -91,7 +79,7 @@ const Cart = db.define("carts", {
     defaultValue: 0.0,
     allowNull: false,
   },
-  imageurl=Sequelize.STRING,
+  imageurl:Sequelize.STRING,
   createdAt: Sequelize.DATE,
   updatedAt: Sequelize.DATE
 });
@@ -111,11 +99,10 @@ const Query = db.define("queries", {
     type: Sequelize.STRING,
     allowNull: false,
   },
-  problem: {
-    type: Sequelize.STRING,
-  },
+  problem:Sequelize.STRING,
+
   phonenumber: {
-    type: Sequelize.NUMBER,
+    type: Sequelize.STRING,
     allowNull: false,
   },
   createdAt: Sequelize.DATE,
