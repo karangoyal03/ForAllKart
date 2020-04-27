@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <link rel="stylesheet" href="style.css" />
+     <link rel="stylesheet" href="Seller.css" />
+       <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+       <script src="Seller.js"></script>
+       <script src="functions.js"></script>
+    <title>Add Product</title>
+    <style>
+      body {
+        background: -webkit-linear-gradient(#1a5363, #7fa4d1, #267d96);
+      }
+      
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="navigation">
+        <nav class="navbar navbar-expand-sm bg-primary navbar-dark ">
+          <!-- Brand -->
+          <h2><i style="color: yellow;">ForAllKart</i></h2>
+
+          <!-- Links -->
+          <ul class="navbar-nav">
+            <li class="nav-item mx-3">
+              <a class="nav-link" href="Home.html"
+                ><i class="fa fa-home"></i
+              ></a>
+            </li>
+            <li class="nav-item mx-2">
+              <a class="nav-link" href="About.html">About-Us</a>
+            </li>
+
+            <li class="nav-item mx-2">
+              <a class="nav-link" href="Contact.html">Contact-Us</a>
+            </li>
+          </ul>
+
+          <div class="mx-3" style="width: 500px; margin-left: 10px;">
+            <input
+              class="form-control mr-sm-2"
+              type="text"
+              placeholder="Search by product name"
+            />
+          </div>
+          <div class="mx-3" style="margin-left: 10px;">
+            <button class="btn btn-success">Search</button>
+          </div>
+           <span class="mx-2" style="margin-left: 10px;">
+            <a href="Seller.html" class="btn btn-danger" id="cartBtn">Seller</a>
+          </span>
+
+          <span>
+            <a href="cart.html" class="btn btn-warning" id="cartBtn">🛒 Cart</a>
+          </span>
+         
+        </nav>
+      </div>
+    </header>
+    <div >
+      <div class="container contact-form" id="productform">
+        <div class="contact-image">
+          <img
+            src="https://image.ibb.co/kUagtU/rocket_contact.png"
+            alt="rocket_contact"
+          />
+        </div>
+        <form >
+          <h3>Add Product</h3>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <input
+                  type="text"
+                  name="txtName"
+                  class="form-control"
+                  placeholder="Product Name"
+                  id="productname"
+                  value=""
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  type="text"
+                  name="txtmanufacturer"
+                  class="form-control"
+                  id="manufacturer"
+                  placeholder="Manufacturer's Name"
+                  value=""
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  type="number"
+                  name="price"
+                  class="form-control"
+                  id="price"
+                  placeholder="Price of the product in numeric"
+                  value=""
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  type="text"
+                  name="imageurl"
+                  class="form-control"
+                  id="imageurl"
+                  placeholder="Image URL"
+                  value=""
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  type="number"
+                  name="ram"
+                  class="form-control"
+                  id="ram"
+                  placeholder="Ram in number"
+                  value=""
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  type="text"
+                  name="primarycamera"
+                  class="form-control"
+                  id="primarycamera"
+                  placeholder="Primary Camera"
+                  value=""
+                />
+              </div>
+               <div class="form-group">
+                <input
+                  type="text"
+                  name="secondarycamera"
+                  class="form-control"
+                  id="secondarycamera"
+                  placeholder="Secondary Camera"
+                  value=""
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  type="number"
+                  name="storage"
+                  class="form-control"
+                  id="storage"
+                  placeholder="Storage in number"
+                  value=""
+                />
+              </div>
+              <div >
+                <button style="margin-left:300px;margin-top: 40px;" class="btn btn-outline-success" id="add">Add</button>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <textarea
+                  name="txtMsg"
+                  class="form-control"
+                  id="description"
+                  placeholder="Product description in  not more than 100 words.."
+                  style="width: 100%; height: 400px;"
+                ></textarea>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

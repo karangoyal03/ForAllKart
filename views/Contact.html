@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -24,21 +24,30 @@
       integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
       crossorigin="anonymous"
     ></script>
-        <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <link rel="stylesheet" href="style.css" />
+     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <script src="Contact.js"></script>
+    <script src="functions.js"></script>
 
     <title>Contact</title>
-</head>
-<body>
+    <style>
+      body {
+        background-color: #25274d;
+        margin-bottom: 100px;
+      }
+    </style>
+  </head>
+  <body>
     <header>
       <div class="navigation">
-        <nav class="navbar navbar-expand-sm bg-primary navbar-dark sticky-top">
+        <nav class="navbar navbar-expand-sm bg-primary navbar-dark ">
           <!-- Brand -->
           <h2><i style="color: yellow;">ForAllKart</i></h2>
 
           <!-- Links -->
           <ul class="navbar-nav">
-            <li class="nav-item mx-4">
+            <li class="nav-item mx-3">
               <a class="nav-link" href="Home.html"
                 ><i class="fa fa-home"></i
               ></a>
@@ -52,22 +61,98 @@
             </li>
           </ul>
 
-          <div class="mx-4" style="width: 500px; margin-left: 10px;">
+          <div class="mx-3" style="width: 500px; margin-left: 10px;">
             <input
               class="form-control mr-sm-2"
               type="text"
               placeholder="Search by product name"
             />
           </div>
-          <div class="mx-4" style="margin-left: 10px;">
+          <div class="mx-3" style="margin-left: 10px;">
             <button class="btn btn-success">Search</button>
           </div>
-          <span style="margin-left: 20px;">
+           <span class="mx-2" style="margin-left: 10px;">
+            <a href="Seller.html" class="btn btn-danger" id="cartBtn">Seller</a>
+          </span>
+
+          <span>
             <a href="cart.html" class="btn btn-warning" id="cartBtn">🛒 Cart</a>
           </span>
+         
         </nav>
       </div>
     </header>
-    
-</body>
+
+    <div class="container contact" >
+      <div class="row" style="margin-bottom: 50px;">
+        <div class="col-md-3">
+          <div class="contact-info">
+            <img
+              src="https://image.ibb.co/kUASdV/contact-image.png"
+              alt="image"
+            />
+            <h2>Contact Us</h2>
+            <h4>We would love to hear the problem of your product from you !</h4>
+          </div>
+        </div>
+        <div class="col-md-9">
+          <div class="contact-form">
+            <div class="form-group">
+              <label class="control-label col-sm-4" for="name"
+                >Name:</label
+              >
+              <div class="col-sm-10">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="name"
+                  placeholder="Enter Your Name"
+                  name="name"
+                />
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-sm-4" for="pname"
+                >Product-Name:</label
+              >
+              <div class="col-sm-10">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="productname"
+                  placeholder="Enter Product Name"
+                  name="productname"
+                />
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-sm-4" for="phone">Phone-Number:</label>
+              <div class="col-sm-10">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="phonenumber"
+                  placeholder="Enter Phone Number"
+                  name="phonenumber"
+                />
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-sm-4" for="problem"
+                >Problem:</label
+              >
+              <div class="col-sm-10">
+                <textarea class="form-control" rows="5" id="problem" placeholder="Enter your problem here..."></textarea>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-offset-2 col-sm-10">
+                <button  class="btn btn-default" id="submit">Submit</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
