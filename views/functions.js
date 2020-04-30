@@ -3,10 +3,66 @@ function fetchusers(done) {
     done(data);
   });
 }
+
+function refreshCart() {
+  let cart_list = $("#cart_list");
+  cart_list.empty();
+  fetchcartitems((carts) => {
+    fetchCartDone(cart_list, carts);
+  });
+}
+function fetchCartDone(cart_list, carts) {
+  for (cart of carts) {
+    cart_list.append(addcart(cart));
+    $(".cart_details").append(
+      $("<button>")
+        .attr("class", "btn btn-danger")
+        .text("Remove from Cart")
+        .click((e) => {
+          deleteproductbyid(e.target.parentElement.id);
+        })
+    );
+  }
+}
 function fetchmobiles(done) {
   $.get("/api/products", function (data) {
     done(data);
   });
+}
+function fetchMobileById(id, done) {
+  $.get(
+    "/api/products/id",
+    {
+      id: id,
+    },
+    (data) => {
+      done(data);
+    }
+  );
+}
+function deleteproductbyid(id) {
+  $.get(
+    "/api/cart/delete",
+    {
+      id: id,
+    },
+    (data) => {
+      refreshCart();
+      window.alert(data.message);
+    }
+  );
+}
+
+function fetchmobilesbycompanyname(searchval, done) {
+  $.get(
+    "/api/products/manufacturer",
+    {
+      manufacturer: searchval,
+    },
+    function (data) {
+      done(data);
+    }
+  );
 }
 function fetchcomplaints(done) {
   $.get("/api/queries", function (data) {
@@ -102,10 +158,10 @@ function createproduct(product) {
      <img src="${product.imageurl}" width="400px" height="470px"> 
      </div>
 
-     <div class="col-6 d-flex justify-content-center" style="height:250px">
-     <div id=${product.id} class="product_details p-3 hvr-wobble-horizontal">
+     <div class="col-6 d-flex justify-content-center" id="productdetail" style="height:250px">
+     <div id=${product.id} class="p-3 hvr-wobble-horizontal">
      <br>
-       <div class="font-weight-bolder text-center p-1">${product.name}</div>
+     <div class="font-weight-bolder text-center p-1">${product.name}</div>
        <br>
 
        <div class="font-weight-bolder text-center p-1">${product.manufacturer}</div>
@@ -117,13 +173,53 @@ function createproduct(product) {
        <br>
        <div class="font-weight-bold text-center p-1">${product.storage} GB ROM</div>
        <br>
-      <div class="font-weight-bolder text-center p-1" style="color:red;"><strong>&#8377 ${product.price}</strong></div>
+      <div class=" price font-weight-bolder text-center p-1" style="color:red;"><strong>&#8377 ${product.price}</strong></div>
       <br>
-      <button class="btn btn-outline-primary text-center">ADD TO CART</button>
-    <br>
+    
+     <br>
+     
+       
      </div>
      </div>
     </div>
     </div>
     `);
+}
+
+function addcart(product) {
+  return $(`
+  <div class="row bg-white text-info m-2">
+  <div class="col-4">
+ <img src="${product.imageurl}" width="400px" height="470px"> 
+ </div>
+
+  <div class="col d-flex justify-content-center">
+ <div id=${product.id} class="cart_details p-3">
+<br>
+<div class="font-weight-bolder text-center p-2">${product.productname}</div>
+<br>
+ <div class="font-weight-bolder text-center p-2">${product.manufacturer}</div>
+<br>
+<div class="font-weight-bolder text-center p-2" style="color:blue;">&#8377 ${product.price}</div>
+<br>
+</div>
+</div>
+
+  </div>
+  `);
+}
+
+function createcart(product) {
+  $.post(
+    "/api/cart",
+    {
+      productname: product.name,
+      manufacturer: product.manufacturer,
+      price: product.price,
+      imageurl: product.imageurl,
+    },
+    (cartadded) => {
+      window.alert(" Successfully added " + cartadded.name + " to cart");
+    }
+  );
 }

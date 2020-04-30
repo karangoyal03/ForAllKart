@@ -8,7 +8,9 @@ route.get("/delete", (req, res) => {
     },
   })
     .then(() => {
-      res.send("item successfully removed from cart");
+      res.send({
+        message: "item successfully removed from cart",
+      });
     })
     .catch((err) => {
       console.log(err);

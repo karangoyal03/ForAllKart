@@ -1,13 +1,50 @@
 const Mobile =require('../../db').Mobile
+const Op=require('sequelize').Op
 const route =require('express').Router()
 
+route.get('/manufacturer',(req,res)=>{
+  Mobile.findAll({
+    where:{
+      manufacturer:{
+        [Op.like]:req.query.manufacturer+'%'
+      }
+    }
+  })
+  .then((mobiles)=>{
+    res.status(200).send(mobiles)
+  })
+  .catch((err)=>{
+    console.log(err)
+    res.status(500).send({
+      error:'could not find product by manufacturer name'
+    })
+  })
 
+})
+
+route.get('/id',(req,res)=>{
+  Mobile.findOne({
+    where:{
+      id:req.query.id
+    }
+  })
+  .then((mobile)=>{
+    res.status(200).send(mobile)
+  })
+  .catch((err)=>{
+    console.log(err)
+    res.status(500).send({
+      error:'could not find product by id'
+    })
+  })
+})
 route.get('/',(req,res)=>{
     Mobile.findAll()
     .then((mobiles)=>{
         res.status(200).send(mobiles)
     })
     .catch((err)=>{
+      console.log(err)
         res.status(500).send({
             error:'could not find mobiles'
         })
