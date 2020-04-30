@@ -175,6 +175,13 @@ function createproduct(product) {
        <br>
       <div class=" price font-weight-bolder text-center p-1" style="color:red;"><strong>&#8377 ${product.price}</strong></div>
       <br>
+      <button onclick=" function myclick(event){
+         console.log(event.target.parentElement.id)
+             fetchMobileById(
+               event.target.parentElement.id,
+            createcart)
+          }"
+            class="btn btn-primary">Add to Cart</button>
     
      <br>
      

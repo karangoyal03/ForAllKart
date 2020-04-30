@@ -6,18 +6,18 @@ $(function () {
     productlist.empty();
     for (let product of products) {
       productlist.append(createproduct(product));
-      $("#productdetail").siblings().siblings().append(
-        $("<button>")
-              .attr("class", "btn btn-outline-primary")
-              .text("ADD TO CART")
-              .click((event) => {
-                console.log(event.target.parentElement.id);
-                fetchMobileById(
-                  event.target.parentElement.id,
-                  createcart
-                );
-              })
-      );
+      // $("#productdetail").siblings().siblings().append(
+      //   $("<button>")
+      //         .attr("class", "btn btn-outline-primary")
+      //         .text("ADD TO CART")
+      //         .click((event) => {
+      //           console.log(event.target.parentElement.id);
+      //           fetchMobileById(
+      //             event.target.parentElement.id,
+      //             createcart
+      //           );
+      //         })
+      // );
     //  $('.productdetail').append(
     //     $("<button>")
     //       .attr("class", "btn btn-outline-primary")
