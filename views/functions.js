@@ -30,15 +30,25 @@ function fetchmobiles(done) {
   });
 }
 function fetchMobileById(id, done) {
-  $.get(
-    "/api/products/id",
-    {
-      id: id,
-    },
-    (data) => {
-      done(data);
+  // $.get(
+  //   "/api/products/id",
+  //   {
+  //     id: id,
+  //   },
+  //   (data) => {
+  //     done(data);
+  //   }
+  // );
+  $.get('/api/products',function(data){
+    let temp=0;
+    for(let i=0;i<data.length;i++){
+      if(data[i].id==id){
+         temp=data[i];
+      }
     }
-  );
+    done(temp);
+
+  })
 }
 function deleteproductbyid(id) {
   $.get(
@@ -175,12 +185,7 @@ function createproduct(product) {
        <br>
       <div class=" price font-weight-bolder text-center p-1" style="color:red;"><strong>&#8377 ${product.price}</strong></div>
       <br>
-      <button onclick=" function myclick(event){
-         console.log(event.target.parentElement.id)
-             fetchMobileById(
-               event.target.parentElement.id,
-            createcart)
-          }"
+      <button onclick=" myclick(event)"
             class="btn btn-primary">Add to Cart</button>
     
      <br>
@@ -191,6 +196,11 @@ function createproduct(product) {
     </div>
     </div>
     `);
+}
+
+function myclick(event) {
+  console.log(event.target.parentElement.id);
+  fetchMobileById(event.target.parentElement.id, createcart);
 }
 
 function addcart(product) {
